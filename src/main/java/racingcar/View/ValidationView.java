@@ -17,4 +17,11 @@ public class ValidationView {
         }
         return false;
     }
+
+    public void checkCarNameArraySizeMorethan5(String[] carnamearray) {
+        Integer MAXIMUMSIZE = 5;
+        if (carnamearray.length > MAXIMUMSIZE) {
+            throw new IllegalArgumentException(ErrorMessage.CARNAMEARRAYSIZEMORETHAN5.getMessage());
+        }
+    }
 }
