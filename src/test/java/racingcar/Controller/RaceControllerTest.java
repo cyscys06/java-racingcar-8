@@ -19,7 +19,7 @@ public class RaceControllerTest {
     class 컨트롤러_테스트 {
         @Test
         void 자동차이름_배열_생성_테스트() {
-            String input = "pobi;woni;jun";
+            String input = "pobi,woni,jun";
             String[] carnamearray = carController.makeCarNameArray(input);
             assertThat(carnamearray).hasSize(3).containsExactly("pobi", "woni", "jun");
         }
