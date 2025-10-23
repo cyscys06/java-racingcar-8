@@ -7,4 +7,14 @@ public class ValidationView {
         }
         return false;
     }
+
+    public boolean checkCarNameLengthMorethan5(String[] carnamearray) {
+        Integer MAXIMUMLEGNTH = 5;
+        for (String carname : carnamearray) {
+            if (carname.length() > MAXIMUMLEGNTH) {
+                throw new IllegalArgumentException(ErrorMessage.CARNAMELENGTHMORETHAN5.getMessage());
+            }
+        }
+        return false;
+    }
 }
