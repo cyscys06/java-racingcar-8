@@ -29,5 +29,13 @@ public class ValidationViewTest {
                     validationview.checkCarNameLengthMorethan5(carnamearray))
                     .withMessageContaining(ErrorMessage.CARNAMELENGTHMORETHAN5.getMessage());
         }
+
+        @Test
+        void 자동차_이름_개수가_5를_넘는지_검증_테스트() {
+            String[] carnamearray = new String[] {"pobi", "jun", "woni", "cys", "asda", "sgsdv"};
+            assertThatIllegalArgumentException().isThrownBy(() ->
+                            validationview.checkCarNameArraySizeMorethan5(carnamearray))
+                    .withMessageContaining(ErrorMessage.CARNAMEARRAYSIZEMORETHAN5.getMessage());
+        }
     }
 }
