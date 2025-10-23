@@ -6,6 +6,6 @@ public class OutputView {
     }
 
     public void requestAttemptsCount() {
-        System.out.println(Message.ATTEMPTS.getMessage());
+        System.out.println(Message.ATTEMPTSREQUEST.getMessage());
     }
 }

@@ -42,7 +42,7 @@ public class OutputViewTest {
         void 이동시도횟수_입력요구_출력_테스트() {
             outputView.requestAttemptsCount();
             String requestMessage = bytearrayout.toString().trim();
-            assertThat(requestMessage).isEqualTo(Message.ATTEMPTS.getMessage());
+            assertThat(requestMessage).isEqualTo(Message.ATTEMPTSREQUEST.getMessage());
         }
     }
 }
