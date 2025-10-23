@@ -8,7 +8,7 @@ public class ValidationView {
     }
 
     public void checkCarNameLengthMorethan5(String[] carnamearray) {
-        Integer MAXIMUMLEGNTH = 5;
+        int MAXIMUMLEGNTH = 5;
         for (String carname : carnamearray) {
             if (carname.length() > MAXIMUMLEGNTH) {
                 throw new IllegalArgumentException(ErrorMessage.CARNAMELENGTHMORETHAN5.getMessage());
@@ -17,7 +17,7 @@ public class ValidationView {
     }
 
     public void checkCarNameArraySizeMorethan5(String[] carnamearray) {
-        Integer MAXIMUMSIZE = 5;
+        int MAXIMUMSIZE = 5;
         if (carnamearray.length > MAXIMUMSIZE) {
             throw new IllegalArgumentException(ErrorMessage.CARNAMEARRAYSIZEMORETHAN5.getMessage());
         }
