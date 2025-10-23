@@ -37,5 +37,12 @@ public class OutputViewTest {
             assertThat(requestMessage).isEqualTo(Message.REQUESTINPUT.getMessage());
             // 레드코드 상태에선 바이트 배열에 저장된 값이 아무것도 없으므로 오류 뜸(파일끝에 도달했다는 메세지 출력)
         }
+
+        @Test
+        void 이동시도횟수_입력요구_출력_테스트() {
+            outputView.requestAttemptsCount();
+            String requestMessage = bytearrayout.toString().trim();
+            assertThat(requestMessage).isEqualTo(Message.ATTEMPTS.getMessage());
+        }
     }
 }
