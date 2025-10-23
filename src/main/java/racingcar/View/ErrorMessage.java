@@ -1,7 +1,8 @@
 package racingcar.View;
 
 public enum ErrorMessage {
-    EMPTYCARNAME("빈 문자열을 자동차 이름으로 입력할 수 없습니다.");
+    EMPTYCARNAME("빈 문자열을 자동차 이름으로 입력할 수 없습니다."),
+    CARNAMELENGTHMORETHAN5("5글자가 넘는 문자열을 자동차 이름으로 입력할 수 없습니다.");
 
     private String message;
 
