@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.Model.CarModel;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class RaceControllerTest {
@@ -23,5 +26,17 @@ public class RaceControllerTest {
             String[] carnamearray = carController.makeCarNameArray(input);
             assertThat(carnamearray).hasSize(3).containsExactly("pobi", "woni", "jun");
         }
+
+        @Test
+        void 자동차_리스트_생성_테스트() {
+            String[] carnamearray = new String[]{"pobi", "woni", "jun"};
+            List<CarModel> carList = carController.makeCarList(carnamearray);
+            assertThat(carList).hasSize(carnamearray.length);
+            for (int i = 0; i < carList.size(); i++) {
+                assertThat(carList.get(i).getCarName()).isEqualTo(carnamearray[i]);
+                assertThat(carList.get(i).getMovementCount()).isEqualTo(0);
+            }
+        }
     }
 }
+
