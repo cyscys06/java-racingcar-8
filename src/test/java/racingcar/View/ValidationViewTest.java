@@ -21,5 +21,13 @@ public class ValidationViewTest {
             assertThatIllegalArgumentException().isThrownBy(() -> validationview.checkCarNameisEmpty(input))
                     .withMessageContaining(ErrorMessage.EMPTYCARNAME.getMessage());
         }
+
+        @Test
+        void 자동차_이름_5글자_이상인지_검증_테스트() {
+            String[] carnamearray = new String[] {"pobi", "asdasd", "woni"};
+            assertThatIllegalArgumentException().isThrownBy(() ->
+                    validationview.checkCarNameLengthMorethan5(carnamearray))
+                    .withMessageContaining(ErrorMessage.CARNAMELENGTHMORETHAN5.getMessage());
+        }
     }
 }
