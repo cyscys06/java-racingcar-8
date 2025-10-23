@@ -34,7 +34,7 @@ public class OutputViewTest {
             // 메서드의 반환(출력)이 바이트 배열에 저장된 것을 문자열 형태로 반환(toString)
             // 그냥 toString만 쓰면 println이 개행 출력해서 개행도 같이 바이트 배열에 남음
             // 그냥 print를 쓰기엔 사용자가 입력을 무조건 줄바뀜 후 해야하므로, trim으로 개행문자 제거하기
-            assertThat(requestMessage).isEqualTo(Message.REQUESTINPUT.getMessage());
+            assertThat(requestMessage).isEqualTo(Message.INPUTREQUEST.getMessage());
             // 레드코드 상태에선 바이트 배열에 저장된 값이 아무것도 없으므로 오류 뜸(파일끝에 도달했다는 메세지 출력)
         }
 

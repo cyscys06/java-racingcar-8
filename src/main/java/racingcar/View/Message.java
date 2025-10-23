@@ -6,7 +6,7 @@ public enum Message {
     COLON(" : "),
     HYPHEN("-"),
     WINNER("최종 우승자"),
-    REQUESTINPUT("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
+    INPUTREQUEST("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)"),
     ATTEMPTS("시도할 횟수는 몇 회인가요?"),
     RESULT("실행결과");
 
