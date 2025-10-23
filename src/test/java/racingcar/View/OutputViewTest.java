@@ -28,7 +28,7 @@ public class OutputViewTest {
     @DisplayName("출력 테스트")
     class 출력_테스트 {
         @Test
-        void 입력요구_출력_테스트() {
+        void 자동차이름_입력요구_출력_테스트() {
             outputView.requestInput(); // 나중에 만들 출력 메서드(println)
             String requestMessage = bytearrayout.toString().trim();
             // 메서드의 반환(출력)이 바이트 배열에 저장된 것을 문자열 형태로 반환(toString)
