@@ -1,6 +1,8 @@
 package racingcar.View;
 
 import org.junit.jupiter.api.*;
+import racingcar.Model.CarModel;
+import racingcar.View.OutputView;
 
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
@@ -29,7 +31,7 @@ public class OutputViewTest {
     class 출력_테스트 {
         @Test
         void 자동차이름_입력요구_출력_테스트() {
-            outputView.requestInput(); // 나중에 만들 출력 메서드(println)
+            outputView.requestInput(); // 출력이 내부 바이트 배열에 저장됨
             String requestMessage = bytearrayout.toString().trim();
             // 메서드의 반환(출력)이 바이트 배열에 저장된 것을 문자열 형태로 반환(toString)
             // 그냥 toString만 쓰면 println이 개행 출력해서 개행도 같이 바이트 배열에 남음
@@ -43,6 +45,23 @@ public class OutputViewTest {
             outputView.requestAttemptsCount();
             String requestMessage = bytearrayout.toString().trim();
             assertThat(requestMessage).isEqualTo(Message.ATTEMPTSREQUEST.getMessage());
+        }
+    }
+
+    @Nested
+    @DisplayName("출력 테스트")
+    class 경기과정_출력_테스트 {
+        private CarModel car;
+        @BeforeEach
+        void setUp() {
+            car = new CarModel("pobi");
+        }
+
+        @Test
+        void 자동차_객체_이름_출력_테스트() {
+            outputView.printCarName(car);
+            String printedCarName = bytearrayout.toString().trim();
+            assertThat(printedCarName).isEqualTo(car.getCarName());
         }
     }
 }
