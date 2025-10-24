@@ -72,4 +72,22 @@ public class ValidatorTest {
                     .withMessageContaining(ErrorMessage.ATTEMPTSCOUNTISMORETHAN10.getMessage());
         }
     }
+
+    @Nested
+    @DisplayName("무작위값 검증 테스트")
+    class 무작위값_검증_테스트 {
+        @Test
+        void 뽑은_무작위수가_이동_조건을_만족하는지_검증_테스트1() {
+            int pickedNumber = 3;
+            boolean isCarMoveable = validator.checkCarMoveable(pickedNumber);
+            assertThat(isCarMoveable).isFalse();
+        }
+
+        @Test
+        void 뽑은_무작위수가_이동_조건을_만족하는지_검증_테스트2() {
+            int pickedNumber = 5;
+            boolean isCarMoveable = validator.checkCarMoveable(pickedNumber);
+            assertThat(isCarMoveable).isTrue();
+        }
+    }
 }
