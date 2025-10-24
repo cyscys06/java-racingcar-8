@@ -5,7 +5,7 @@ import racingcar.Model.CarModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarController {
+public class PrepareRaceController {
     public String[] makeCarNameArray(String input) {
         return input.split(",");
     }

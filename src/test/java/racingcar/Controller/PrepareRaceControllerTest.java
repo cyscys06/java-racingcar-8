@@ -9,28 +9,28 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-public class RaceControllerTest {
-    private CarController carController;
+public class PrepareRaceControllerTest {
+    private PrepareRaceController prepareRaceController;
 
     @BeforeEach
     public void setUp() {
-        carController = new CarController();
+        prepareRaceController = new PrepareRaceController();
     }
 
     @Nested
     @DisplayName("컨트롤러 테스트")
-    class 컨트롤러_테스트 {
+    class 자돋차_리스트_생성_컨트롤러_테스트 {
         @Test
         void 자동차이름_배열_생성_테스트() {
             String input = "pobi,woni,jun";
-            String[] carnamearray = carController.makeCarNameArray(input);
+            String[] carnamearray = prepareRaceController.makeCarNameArray(input);
             assertThat(carnamearray).hasSize(3).containsExactly("pobi", "woni", "jun");
         }
 
         @Test
         void 자동차_리스트_생성_테스트() {
             String[] carnamearray = new String[]{"pobi", "woni", "jun"};
-            List<CarModel> carList = carController.makeCarList(carnamearray);
+            List<CarModel> carList = prepareRaceController.makeCarList(carnamearray);
             assertThat(carList).hasSize(carnamearray.length);
             for (int i = 0; i < carList.size(); i++) {
                 assertThat(carList.get(i).getCarName()).isEqualTo(carnamearray[i]);
