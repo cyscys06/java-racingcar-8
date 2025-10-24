@@ -17,8 +17,11 @@ public class RacingControllerTest {
     class 경기_진행_테스트 {
         @Test
         void 무작위_수_생성_테스트() {
-            int randomNumber = racingController.getRandomNumber();
-            assertThat(randomNumber).isBetween(0, 9);
+            int[] randomNumberArray = new int[30];
+            for (int randomNumber : randomNumberArray) {
+                randomNumber = racingController.getRandomNumber();
+                assertThat(randomNumber).isBetween(0, 9);
+            }
         }
     }
 }
