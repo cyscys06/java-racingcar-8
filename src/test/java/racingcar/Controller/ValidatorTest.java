@@ -55,5 +55,13 @@ public class ValidatorTest {
                     -> validator.checkAttemptsCountisLessthan1(attemptsCount))
                     .withMessageContaining(ErrorMessage.ATTEMPTSCOUNTISLESSTHAN1.getMessage());
         }
+
+        @Test
+        void 숫자로_변환한_이동시도횟수가_10_초과인지_검증_테스트() {
+            int attemptsCount = -1;
+            assertThatIllegalArgumentException().isThrownBy(()
+                            -> validator.checkAttemptsCountisMorethan10(attemptsCount))
+                    .withMessageContaining(ErrorMessage.ATTEMPTSCOUNTISMORETHAN10.getMessage());
+        }
     }
 }
