@@ -49,6 +49,14 @@ public class ValidatorTest {
         }
 
         @Test
+        void 입력한_이동시도횟수가_소수인지_검증_테스트() {
+            String attempts = "2.4";
+            assertThatIllegalArgumentException().isThrownBy(()
+                            -> validator.checkAttemptsCountisNotNumber(attempts))
+                    .withMessageContaining(ErrorMessage.ATTEMPTSCOUNTISNOTNUMBER.getMessage());
+        }
+
+        @Test
         void 숫자로_변환한_이동시도횟수가_1_미만인지_검증_테스트() {
             int attemptsCount = -1;
             assertThatIllegalArgumentException().isThrownBy(()
