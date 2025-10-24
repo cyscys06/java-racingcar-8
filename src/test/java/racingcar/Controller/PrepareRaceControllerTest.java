@@ -37,6 +37,13 @@ public class PrepareRaceControllerTest {
                 assertThat(carList.get(i).getMovementCount()).isEqualTo(0);
             }
         }
+
+        @Test
+        void 문자열_형태로_입력받은_이동시도횟수를_숫자로_변환_테스트() {
+            String attemptsCountString = "9";
+            int attemptsCountNumber = changeStringtoNumber(attemptsCountString);
+            assertThat(attemptsCountNumber).isEqualTo(9);
+        }
     }
 }
 
