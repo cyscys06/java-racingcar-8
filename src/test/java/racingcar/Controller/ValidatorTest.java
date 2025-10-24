@@ -9,10 +9,10 @@ import racingcar.View.ErrorMessage;
 import static org.assertj.core.api.Assertions.*;
 
 public class ValidatorTest {
-    private Validator validationview;
+    private Validator validator;
     @BeforeEach
     void setUp() {
-        validationview = new Validator();
+        validator = new Validator();
     }
     @Nested
     @DisplayName("입력값 검증 테스트")
@@ -20,7 +20,7 @@ public class ValidatorTest {
         @Test
         void 자동차_이름에_빈_문자열_있는지_검증_테스트() {
             String input = "";
-            assertThatIllegalArgumentException().isThrownBy(() -> validationview.checkCarNameisEmpty(input))
+            assertThatIllegalArgumentException().isThrownBy(() -> validator.checkCarNameisEmpty(input))
                     .withMessageContaining(ErrorMessage.EMPTYCARNAME.getMessage());
         }
 
@@ -28,7 +28,7 @@ public class ValidatorTest {
         void 자동차_이름_5글자_이상인지_검증_테스트() {
             String[] carnamearray = new String[] {"pobi", "asdasd", "woni"};
             assertThatIllegalArgumentException().isThrownBy(() ->
-                    validationview.checkCarNameLengthMorethan5(carnamearray))
+                    validator.checkCarNameLengthMorethan5(carnamearray))
                     .withMessageContaining(ErrorMessage.CARNAMELENGTHMORETHAN5.getMessage());
         }
 
@@ -36,8 +36,16 @@ public class ValidatorTest {
         void 자동차_이름_개수가_5를_넘는지_검증_테스트() {
             String[] carnamearray = new String[] {"pobi", "jun", "woni", "cys", "asda", "sgsdv"};
             assertThatIllegalArgumentException().isThrownBy(() ->
-                            validationview.checkCarNameArraySizeMorethan5(carnamearray))
+                            validator.checkCarNameArraySizeMorethan5(carnamearray))
                     .withMessageContaining(ErrorMessage.CARNAMEARRAYSIZEMORETHAN5.getMessage());
+        }
+
+        @Test
+        void 입력한_이동시도횟수가_숫자가_아닌지_검증_테스트() {
+            String attempts = "a";
+            assertThatIllegalArgumentException().isThrownBy(()
+                    -> validator.checkAttemptsCountisNotNumber(attempts))
+                    .withMessageContaining(ErrorMessage.ATTEMPTSCOUNTISNOTNUMBER.getMessage());
         }
     }
 }
