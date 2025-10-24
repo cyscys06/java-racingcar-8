@@ -17,4 +17,8 @@ public class CarModel {
     public int getMovementCount() {
         return movementCount;
     }
+
+    public void moveCar() {
+        movementCount++;
+    }
 }
