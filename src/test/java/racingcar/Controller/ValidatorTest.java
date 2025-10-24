@@ -47,5 +47,13 @@ public class ValidatorTest {
                     -> validator.checkAttemptsCountisNotNumber(attempts))
                     .withMessageContaining(ErrorMessage.ATTEMPTSCOUNTISNOTNUMBER.getMessage());
         }
+
+        @Test
+        void 숫자로_변환한_이동시도횟수가_1_미만인지_검증_테스트() {
+            int attemptsCount = -1;
+            assertThatIllegalArgumentException().isThrownBy(()
+                    -> validator.checkAttemptsCountisLessthan1(attemptsCount))
+                    .withMessageContaining(ErrorMessage.ATTEMPTSCOUNTISLESSTHAN1.getMessage());
+        }
     }
 }
