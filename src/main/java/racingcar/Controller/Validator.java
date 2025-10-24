@@ -45,4 +45,8 @@ public class Validator {
             throw new IllegalArgumentException(ErrorMessage.ATTEMPTSCOUNTISMORETHAN10.getMessage());
         }
     }
+
+    public boolean checkCarMoveable(int pickedNumber) {
+        return pickedNumber >= 4;
+    }
 }
