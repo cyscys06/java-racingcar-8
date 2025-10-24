@@ -1,16 +1,18 @@
-package racingcar.View;
+package racingcar.Controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.View.ErrorMessage;
+
 import static org.assertj.core.api.Assertions.*;
 
-public class ValidationViewTest {
-    private ValidationView validationview;
+public class ValidatorTest {
+    private Validator validationview;
     @BeforeEach
     void setUp() {
-        validationview = new ValidationView();
+        validationview = new Validator();
     }
     @Nested
     @DisplayName("입력값 검증 테스트")

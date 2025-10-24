@@ -1,6 +1,8 @@
-package racingcar.View;
+package racingcar.Controller;
 
-public class ValidationView {
+import racingcar.View.ErrorMessage;
+
+public class Validator {
     public void checkCarNameisEmpty(String carname) {
         if (carname.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.EMPTYCARNAME.getMessage());
