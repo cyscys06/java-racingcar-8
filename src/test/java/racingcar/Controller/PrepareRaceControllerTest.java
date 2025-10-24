@@ -19,7 +19,7 @@ public class PrepareRaceControllerTest {
 
     @Nested
     @DisplayName("컨트롤러 테스트")
-    class 자돋차_리스트_생성_컨트롤러_테스트 {
+    class 경기준비_컨트롤러_테스트 {
         @Test
         void 자동차이름_배열_생성_테스트() {
             String input = "pobi,woni,jun";
