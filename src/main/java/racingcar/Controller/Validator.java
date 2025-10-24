@@ -24,4 +24,13 @@ public class Validator {
             throw new IllegalArgumentException(ErrorMessage.CARNAMEARRAYSIZEMORETHAN5.getMessage());
         }
     }
+
+    public void checkAttemptsCountisNotNumber(String attemptscount) {
+        try {
+            Integer.parseInt(attemptscount);
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.ATTEMPTSCOUNTISNOTNUMBER.getMessage());
+        }
+    }
 }
