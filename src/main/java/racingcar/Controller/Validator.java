@@ -39,4 +39,10 @@ public class Validator {
             throw new IllegalArgumentException(ErrorMessage.ATTEMPTSCOUNTISLESSTHAN1.getMessage());
         }
     }
+
+    public void checkAttemptsCountisMorethan10(int attemptscount) {
+        if (attemptscount > 10) {
+            throw new IllegalArgumentException(ErrorMessage.ATTEMPTSCOUNTISMORETHAN10.getMessage());
+        }
+    }
 }
