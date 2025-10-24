@@ -17,4 +17,8 @@ public class PrepareRaceController {
         }
         return carList;
     }
+
+    public int changeStringtoNumber(String attemptscountstring) {
+        return Integer.parseInt(attemptscountstring);
+    }
 }
