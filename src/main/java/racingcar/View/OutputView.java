@@ -2,6 +2,8 @@ package racingcar.View;
 
 import racingcar.Model.CarModel;
 
+import java.util.List;
+
 public class OutputView {
     public void requestInput() {
         System.out.println(Message.INPUTREQUEST.getMessage());
@@ -28,6 +30,11 @@ public class OutputView {
             printCarMovementCount(car);
             System.out.println();
         }
+    }
 
+    public void printWinner(List<String> winnersList) {
+        System.out.println(Message.WINNER.getMessage() +
+                Message.COLON.getMessage() +
+                String.join("," , winnersList));
     }
 }

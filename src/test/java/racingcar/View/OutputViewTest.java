@@ -88,5 +88,8 @@ public class OutputViewTest {
                             "jun : " + System.lineSeparator()
             );
         }
+
+        // TODO: 우승자 이름 출력 메서드 테스트(입력: 우승자 리스트
+        // 출력: 실행결과 : 우승자 이름(구분자 쉼표)
     }
 }
