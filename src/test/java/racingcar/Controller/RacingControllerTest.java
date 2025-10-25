@@ -4,14 +4,28 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import racingcar.Model.CarModel;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class RacingControllerTest {
     RacingController racingController;
+    private CarModel car1, car2, car3;
+    private CarModel[] carList;
     @BeforeEach
     void setUp() {
         racingController = new RacingController();
+
+        car1 = new CarModel("pobi");
+        car2 = new CarModel("woni");
+        car3 = new CarModel("jun");
+
+        car1.moveCar();
+        car2.moveCar();
+        car2.moveCar();
+        carList = new CarModel[] {car1, car2, car3};
     }
+
     @Nested
     @DisplayName("경기 진행 테스트")
     class 경기_진행_테스트 {
@@ -22,6 +36,12 @@ public class RacingControllerTest {
                 randomNumber = racingController.getRandomNumber();
                 assertThat(randomNumber).isBetween(0, 9);
             }
+        }
+
+        @Test
+        void 자동차들의_이동횟수_중_최댓값_찾기_테스트() {
+            int maxMovementCount = getMaxMovementCount(carList);
+            assertThat(maxMovementCount).isEqualTo(car2.getMovementCount());
         }
     }
 }
