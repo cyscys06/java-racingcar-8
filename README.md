@@ -10,7 +10,7 @@
 ### OutputView
 - [x] requestInput: 사용자에게 자동차 이름 입력 요구 메세지를 출력하는 기능
 - [x] requestAttemptsCount: 사용자에게 이동 시도 횟수 입력 요구 메세지를 출력하는 기능
-- [ ] 우승자(1명이상)를 출력하는 기능
+- [x] 우승자(1명이상)를 출력하는 기능
 
 #### printCarData: 자동차 객체의 정보를 출력하는 기능
 - [x] printCarName: 자동차 객체의 이름을 출력하는 기능
@@ -35,3 +35,7 @@
 - [x] checkAttemptsCountisLessthan1: 숫자로 변환한 이동 시도 횟수가 1 미만인지 검사하는 기능
 - [x] checkAttemptsCountisMorethan10: 이동 횟수가 10을 초과하는지 검사하는 기능
 - [x] checkCarMoveable: 뽑은 무작위수가 이동 조건을 만족하는지 검사하는 기능
+
+
+## 순서도
+![](./asset/asd.png)

@@ -3,7 +3,7 @@ package racingcar.Controller;
 import racingcar.View.ErrorMessage;
 
 public class Validator {
-    public void checkCarNameisEmpty(String carname) {
+    public void checkCarNameisEmpty(String carname) { // 빈 문자열인지 검증
         if (carname.isEmpty()) {
             throw new IllegalArgumentException(ErrorMessage.EMPTYCARNAME.getMessage());
         }

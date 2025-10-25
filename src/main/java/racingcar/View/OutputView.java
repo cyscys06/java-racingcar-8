@@ -24,7 +24,7 @@ public class OutputView {
         }
     }
 
-    public void printCarData(CarModel[] carList) {
+    public void printCarData(List<CarModel> carList) {
         for (CarModel car : carList) {
             printCarName(car);
             printCarMovementCount(car);

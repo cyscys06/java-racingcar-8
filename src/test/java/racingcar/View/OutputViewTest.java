@@ -55,7 +55,7 @@ public class OutputViewTest {
     @DisplayName("출력 테스트")
     class 경기과정_출력_테스트 {
         private CarModel car1, car2, car3;
-        private CarModel[] carList;
+        private List<CarModel> carList;
         @BeforeEach
         void setUp() {
             car1 = new CarModel("pobi");
@@ -64,7 +64,9 @@ public class OutputViewTest {
             car1.moveCar();
             car2.moveCar();
             car2.moveCar();
-            carList = new CarModel[] {car1, car2, car3};
+            carList.add(car1);
+            carList.add(car2);
+            carList.add(car3);
         }
 
         @Test
