@@ -63,5 +63,15 @@ public class OutputViewTest {
             String printedCarName = bytearrayout.toString().trim();
             assertThat(printedCarName).isEqualTo(car.getCarName());
         }
+
+        @Test
+        void 자동차_객체_이동횟수만큼_하이픈_출력_테스트() {
+            for (int i = 0; i < 5; i++) {
+                car.moveCar();
+            }
+            outputView.printCarMovementCount(car);
+            String printedCarMovementCount = bytearrayout.toString().replace("\n", "");
+            assertThat(printedCarMovementCount).isEqualTo(Message.COLON.getMessage() + "-----");
+        }
     }
 }
