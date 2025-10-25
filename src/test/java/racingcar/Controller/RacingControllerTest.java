@@ -5,13 +5,18 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import racingcar.Model.CarModel;
+import racingcar.Controller.RacingController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
 public class RacingControllerTest {
     RacingController racingController;
     private CarModel car1, car2, car3;
-    private CarModel[] carList;
+    private CarModel[] carModels;
+    private List<CarModel> carList;
     @BeforeEach
     void setUp() {
         racingController = new RacingController();
@@ -23,7 +28,8 @@ public class RacingControllerTest {
         car1.moveCar();
         car2.moveCar();
         car2.moveCar();
-        carList = new CarModel[] {car1, car2, car3};
+        carModels = new CarModel[] {car1, car2, car3};
+        carList = new ArrayList<>(List.of(carModels));
     }
 
     @Nested
@@ -40,7 +46,7 @@ public class RacingControllerTest {
 
         @Test
         void 자동차들의_이동횟수_중_최댓값_찾기_테스트() {
-            int maxMovementCount = getMaxMovementCount(carList);
+            int maxMovementCount = racingController.getMaxMovementCount(carList);
             assertThat(maxMovementCount).isEqualTo(car2.getMovementCount());
         }
     }
