@@ -12,8 +12,8 @@ public class PrepareRaceController {
 
     public List<CarModel> makeCarList(String[] carnamearray) {
         List<CarModel> carList = new ArrayList<>(carnamearray.length);
-        for (int i = 0; i < carnamearray.length; i++) {
-            carList.add(new CarModel(carnamearray[i]));
+        for (String car : carnamearray) {
+            carList.add(new CarModel(car));
         }
         return carList;
     }
