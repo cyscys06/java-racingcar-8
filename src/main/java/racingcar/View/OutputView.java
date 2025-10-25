@@ -21,4 +21,9 @@ public class OutputView {
             System.out.print(Message.HYPHEN.getMessage());
         }
     }
+
+    public void printCarData(CarModel car) {
+        printCarName(car);
+        printCarMovementCount(car);
+    }
 }
