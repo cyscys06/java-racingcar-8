@@ -3,6 +3,7 @@ package racingcar.Controller;
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Model.CarModel;
 import racingcar.View.InputView;
+import racingcar.View.Message;
 import racingcar.View.OutputView;
 
 import java.lang.Math;
@@ -51,23 +52,25 @@ public class RacingController {
     public List<CarModel> getCarList() {
         outputView.requestInput();
         String input = inputView.getInput();
+
         validator.checkCarNameisEmpty(input);
 
         String[] carNameArray = prepareRaceController.makeCarNameArray(input);
+
         validator.checkCarNameLengthMorethan5(carNameArray);
         validator.checkCarNameArraySizeMorethan5(carNameArray);
 
-        List<CarModel> carList = prepareRaceController.makeCarList(carNameArray);
-
-        return carList;
+        return prepareRaceController.makeCarList(carNameArray);
     }
 
     public int getAttemptsCount() {
         outputView.requestAttemptsCount();
         String atteptsInput = inputView.getAttemptsCount();
+
         validator.checkAttemptsCountisNotNumber(atteptsInput);
 
         int attemptsCount = prepareRaceController.changeStringtoNumber(atteptsInput);
+
         validator.checkAttemptsCountisLessthan1(attemptsCount);
         validator.checkAttemptsCountisMorethan10(attemptsCount);
 
@@ -83,6 +86,7 @@ public class RacingController {
     }
 
     public void showGameProgress(List<CarModel> carList, int attemptsCount) {
+        System.out.println(Message.RESULT.getMessage());
         for (int i = 0; i < attemptsCount; i++) {
             moveCarRandomly(carList);
             outputView.printCarData(carList);
