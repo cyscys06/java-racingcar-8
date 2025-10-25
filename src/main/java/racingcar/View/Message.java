@@ -10,7 +10,7 @@ public enum Message {
     ATTEMPTSREQUEST("시도할 횟수는 몇 회인가요?"),
     RESULT("실행결과");
 
-    String message;
+    private final String message;
 
     // 생성자
     Message(String message) {

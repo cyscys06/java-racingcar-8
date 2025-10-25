@@ -51,7 +51,7 @@ public class RacingControllerTest {
 
         @Test
         void 이동횟수_최댓값과_같은값_가진_자동차_찾기_테스트() {
-            List<String> winnersList = racingController.getWinnerList(carList); // TODO: 우승자 조회 기능 추가
+            List<String> winnersList = racingController.getWinnerList(carList);
             List<String> result = new ArrayList<>();
             result.add("pobi");
             result.add("woni");

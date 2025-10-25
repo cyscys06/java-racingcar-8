@@ -8,7 +8,7 @@ public enum ErrorMessage {
     ATTEMPTSCOUNTISLESSTHAN1("1 미만의 수를 이동 시도 횟수로 입력할 수 없습니다."),
     ATTEMPTSCOUNTISMORETHAN10("10을 넘는 수를 이동 시도 횟수로 입력할 수 없습니다.");
 
-    private String message;
+    private final String message;
 
     ErrorMessage(String message) {
         this.message = message;

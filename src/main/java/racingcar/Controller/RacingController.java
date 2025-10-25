@@ -11,10 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RacingController {
-    private OutputView outputView;
-    private InputView inputView;
-    private PrepareRaceController prepareRaceController;
-    private Validator validator;
+    private final OutputView outputView;
+    private final InputView inputView;
+    private final PrepareRaceController prepareRaceController;
+    private final Validator validator;
+
     public RacingController() {
         this.outputView = new OutputView();
         this.inputView = new InputView();
@@ -47,34 +48,52 @@ public class RacingController {
         return winnersList;
     }
 
-    public void run() {
+    public List<CarModel> getCarList() {
         outputView.requestInput();
         String input = inputView.getInput();
-
         validator.checkCarNameisEmpty(input);
 
         String[] carNameArray = prepareRaceController.makeCarNameArray(input);
         validator.checkCarNameLengthMorethan5(carNameArray);
-
         validator.checkCarNameArraySizeMorethan5(carNameArray);
 
         List<CarModel> carList = prepareRaceController.makeCarList(carNameArray);
 
+        return carList;
+    }
+
+    public int getAttemptsCount() {
         outputView.requestAttemptsCount();
         String atteptsInput = inputView.getAttemptsCount();
-
         validator.checkAttemptsCountisNotNumber(atteptsInput);
+
         int attemptsCount = prepareRaceController.changeStringtoNumber(atteptsInput);
         validator.checkAttemptsCountisLessthan1(attemptsCount);
         validator.checkAttemptsCountisMorethan10(attemptsCount);
-        for (int i = 0; i < attemptsCount; i++) {
-            for (CarModel car : carList) {
-                if (validator.checkCarMoveable(getRandomNumber())) {
-                    car.moveCar();
-                }
+
+        return attemptsCount;
+    }
+
+    public void moveCarRandomly(List<CarModel> carList) {
+        for (CarModel car : carList) {
+            if (validator.checkCarMoveable(getRandomNumber())) {
+                car.moveCar();
             }
+        }
+    }
+
+    public void showGameProgress(List<CarModel> carList, int attemptsCount) {
+        for (int i = 0; i < attemptsCount; i++) {
+            moveCarRandomly(carList);
             outputView.printCarData(carList);
         }
+    }
+
+    public void run() {
+        List<CarModel> carList = getCarList();
+        int attemptsCount = getAttemptsCount();
+
+        showGameProgress(carList, attemptsCount);
 
         List<String> winnerList = getWinnerList(carList);
 
