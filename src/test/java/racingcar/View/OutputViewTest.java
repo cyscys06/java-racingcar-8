@@ -6,6 +6,9 @@ import racingcar.View.OutputView;
 
 import java.io.PrintStream;
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 public class OutputViewTest {
@@ -89,7 +92,14 @@ public class OutputViewTest {
             );
         }
 
-        // TODO: 우승자 이름 출력 메서드 테스트(입력: 우승자 리스트
-        // 출력: 실행결과 : 우승자 이름(구분자 쉼표)
+        @Test
+        void 우승자_출력_테스트() {
+            List<String> winnersList = new ArrayList<>();
+            winnersList.add("pobi");
+            winnersList.add("woni");
+            outputView.printWinner(winnersList);
+            String printedWinner = bytearrayout.toString().trim();
+            assertThat(printedWinner).contains("pobi,woni");
+        }
     }
 }
