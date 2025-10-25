@@ -12,7 +12,7 @@ public class OutputView {
     }
 
     public void printCarName(CarModel car) {
-        System.out.println(car.getCarName());
+        System.out.print(car.getCarName());
     }
 
     public void printCarMovementCount(CarModel car) {

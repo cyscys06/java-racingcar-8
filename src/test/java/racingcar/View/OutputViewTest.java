@@ -73,5 +73,13 @@ public class OutputViewTest {
             String printedCarMovementCount = bytearrayout.toString().replace("\n", "");
             assertThat(printedCarMovementCount).isEqualTo(Message.COLON.getMessage() + "-----");
         }
+
+        @Test
+        void 자동차_객체_정보_출력_테스트() {
+            car.moveCar();
+            outputView.printCarData(car);
+            String printedCarMovementCount = bytearrayout.toString().trim();
+            assertThat(printedCarMovementCount).isEqualTo(car.getCarName() + Message.COLON.getMessage() + "-");
+        }
     }
 }
