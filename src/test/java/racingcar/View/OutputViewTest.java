@@ -61,9 +61,12 @@ public class OutputViewTest {
             car1 = new CarModel("pobi");
             car2 = new CarModel("woni");
             car3 = new CarModel("jun");
+            carList = new ArrayList<>();
+
             car1.moveCar();
             car2.moveCar();
             car2.moveCar();
+
             carList.add(car1);
             carList.add(car2);
             carList.add(car3);
@@ -91,6 +94,7 @@ public class OutputViewTest {
                     "pobi : -" + System.lineSeparator() +
                             "woni : --" + System.lineSeparator() +
                             "jun : " + System.lineSeparator()
+                            + System.lineSeparator()
             );
         }
 
