@@ -51,35 +51,42 @@ public class OutputViewTest {
     @Nested
     @DisplayName("출력 테스트")
     class 경기과정_출력_테스트 {
-        private CarModel car;
+        private CarModel car1, car2, car3;
+        private CarModel[] carList;
         @BeforeEach
         void setUp() {
-            car = new CarModel("pobi");
+            car1 = new CarModel("pobi");
+            car2 = new CarModel("woni");
+            car3 = new CarModel("jun");
+            car1.moveCar();
+            car2.moveCar();
+            car2.moveCar();
+            carList = new CarModel[] {car1, car2, car3};
         }
 
         @Test
         void 자동차_객체_이름_출력_테스트() {
-            outputView.printCarName(car);
+            outputView.printCarName(car1);
             String printedCarName = bytearrayout.toString().trim();
-            assertThat(printedCarName).isEqualTo(car.getCarName());
+            assertThat(printedCarName).isEqualTo(car1.getCarName());
         }
 
         @Test
         void 자동차_객체_이동횟수만큼_하이픈_출력_테스트() {
-            for (int i = 0; i < 5; i++) {
-                car.moveCar();
-            }
-            outputView.printCarMovementCount(car);
+            outputView.printCarMovementCount(car2);
             String printedCarMovementCount = bytearrayout.toString().replace("\n", "");
-            assertThat(printedCarMovementCount).isEqualTo(Message.COLON.getMessage() + "-----");
+            assertThat(printedCarMovementCount).isEqualTo(Message.COLON.getMessage() + "--");
         }
 
         @Test
         void 자동차_객체_정보_출력_테스트() {
-            car.moveCar();
-            outputView.printCarData(car);
-            String printedCarMovementCount = bytearrayout.toString().trim();
-            assertThat(printedCarMovementCount).isEqualTo(car.getCarName() + Message.COLON.getMessage() + "-");
+            outputView.printCarData(carList);
+            String printedCarData = bytearrayout.toString();
+            assertThat(printedCarData).isEqualTo(
+                    "pobi : -" + System.lineSeparator() +
+                            "woni : --" + System.lineSeparator() +
+                            "jun : " + System.lineSeparator()
+            );
         }
     }
 }

@@ -22,8 +22,12 @@ public class OutputView {
         }
     }
 
-    public void printCarData(CarModel car) {
-        printCarName(car);
-        printCarMovementCount(car);
+    public void printCarData(CarModel[] carList) {
+        for (CarModel car : carList) {
+            printCarName(car);
+            printCarMovementCount(car);
+            System.out.println();
+        }
+
     }
 }
