@@ -14,4 +14,11 @@ public class OutputView {
     public void printCarName(CarModel car) {
         System.out.println(car.getCarName());
     }
+
+    public void printCarMovementCount(CarModel car) {
+        System.out.print(Message.COLON.getMessage());
+        for (int i = 0; i < car.getMovementCount(); i++) {
+            System.out.print(Message.HYPHEN.getMessage());
+        }
+    }
 }
