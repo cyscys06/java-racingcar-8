@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.Model.CarModel;
 import java.lang.Math;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RacingController {
@@ -19,5 +20,16 @@ public class RacingController {
             MAX = Math.max(MAX, car.getMovementCount());
         }
         return MAX;
+    }
+
+    public List<String> getWinnerList(List<CarModel> carList) {
+        List<String> winnersList = new ArrayList<>();
+        int maxMovementCount = getMaxMovementCount(carList);
+        for (CarModel car : carList) {
+            if (car.getMovementCount() == maxMovementCount) {
+                winnersList.add(car.getCarName());
+            }
+        }
+        return winnersList;
     }
 }
