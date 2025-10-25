@@ -30,6 +30,7 @@ public class OutputView {
             printCarMovementCount(car);
             System.out.println();
         }
+        System.out.println();
     }
 
     public void printWinner(List<String> winnersList) {
