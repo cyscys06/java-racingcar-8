@@ -27,7 +27,6 @@ public class RacingControllerTest {
 
         car1.moveCar();
         car2.moveCar();
-        car2.moveCar();
         carModels = new CarModel[] {car1, car2, car3};
         carList = new ArrayList<>(List.of(carModels));
     }
@@ -48,6 +47,15 @@ public class RacingControllerTest {
         void 자동차들의_이동횟수_중_최댓값_찾기_테스트() {
             int maxMovementCount = racingController.getMaxMovementCount(carList);
             assertThat(maxMovementCount).isEqualTo(car2.getMovementCount());
+        }
+
+        @Test
+        void 이동횟수_최댓값과_같은값_가진_자동차_찾기_테스트() {
+            List<String> winnersList = getWinnerList(carList); // TODO: 우승자 조회 기능 추가
+            CarModel[] winnersarray = new CarModel[] {car1, car2};
+            for (int i = 0; i < winnersarray.length; i++) {
+                assertThat(winnersList.get(i)).isEqualTo(car2.getCarName());
+            }
         }
     }
 }
