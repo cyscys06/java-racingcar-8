@@ -21,11 +21,16 @@
 - [x] makeCarNameArray: 입력받은 문자열을 구분자로 분리하여 문자열 배열에 저장하는 기능
 - [x] makeCarList: 문자열 배열로 분리한 자동차 이름들을 리스트에 저장하는 기능
 - [x] changeStringtoNumber: 문자열 형태로 입력받은 이동 시도 횟수를 숫자 형태로 변환하는 기능
-
+#### 통합 모듈
+- [x] getCarList: 사용자에게 입력받은 문자열을 검증 후 자동차 리스트를 생성하는 통합 모듈
+- [x] getAttemptsCount: 사용자에게 이동 시도 횟수를 입력받고 검증하는 통합 모듈
+- [x] moveCarRandomly: 무작위로 자동차를 이동시키는 통합 모듈
+- [x] showGameProgress: 게임 진행 상황을 알려주는 통합 모듈
+- [x] run: 전체 프로그램을 실행시키는 통합 모듈
 ### RacingController
 - [x] getRandomNumber: 무작위수를 뽑는 기능
-- [x] 자동차들의 이동 횟수 중 최댓값을 반환하는 기능
-- [x] 이동 횟수의 최댓값과 같은 값을 가진 자동차를 찾는 기능
+- [x] getMaxMovementCount: 자동차들의 이동 횟수 중 최댓값을 반환하는 기능
+- [x] getWinnerList: 이동 횟수의 최댓값과 같은 값을 가진 자동차를 찾아 리스트에 넣는 기능
 
 ### Validator
 - [x] checkCarNameisEmpty: 분리한 문자열 중 빈 문자열이 있는지 검사하는 기능
@@ -35,5 +40,3 @@
 - [x] checkAttemptsCountisLessthan1: 숫자로 변환한 이동 시도 횟수가 1 미만인지 검사하는 기능
 - [x] checkAttemptsCountisMorethan10: 이동 횟수가 10을 초과하는지 검사하는 기능
 - [x] checkCarMoveable: 뽑은 무작위수가 이동 조건을 만족하는지 검사하는 기능
-## 순서도
-![](./asset/flowChart.png)
